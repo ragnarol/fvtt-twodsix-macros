@@ -1,0 +1,56 @@
+Please extract the data from this Traveller spaceship sheet image and return it in the following JSON format:
+
+Use the structure below.
+
+Include all ship components in items.
+
+For any component with a multiplier (e.g. Staterooms x10), move the count into a quantity property and clean the name.
+
+For computers with programs in parentheses (e.g. Computer 5/bis (Jump Control/2)), add:
+
+One item for the computer itself (subtype: "computer").
+
+One item per program:
+
+subtype: "program", and a level property if the program has /N (e.g. 2 in Jump Control/2).
+
+powerDraw: 0, tonnage: 0.
+
+Add subtype based on the section from the ship sheet (e.g. staterooms, systems, sensors, computer, program, commonAreas).
+
+Use the number in the computer’s name (e.g. 5 in Computer 5/bis) as the ship’s bandwith.value.
+ts
+Copy
+Edit
+const itemData = {
+  name: "Ship Name from Sheet",
+  type: "ship",
+  system: {
+    techlevel: [number],
+    maintenanceCost: [number in Cr],
+    shipValue: [number in MCr],
+    reqPower: {
+      systems: [number],
+      "m-drive": [number],
+      "j-drive": [number],
+      sensors: [number]
+    },
+    shipStats: {
+      hull: { value: [...], max: [...], min: 0, label: "..." },
+      power: { value: [...], max: [...], min: 0 },
+      armor: { value: [...], max: [...], min: 0 },
+      mass: { value: [...], max: [...], min: 0 },
+      drives: { jDrive: { rating: [...] }, mDrive: { rating: [...] } },
+      bandwith: { value: [computer rating], max: [...], min: 0 }
+    }
+  },
+  items: [
+    {
+      name: "...",
+      type: "component",
+      subtype: "...", // section from the sheet
+      powerDraw: 5,
+      tonnage: ...
+    }
+  ]
+}

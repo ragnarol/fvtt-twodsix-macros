@@ -1,0 +1,17 @@
+Given the following interface, can you parse the attached images from a list of weapons in the Traveller RPG and provide each weapon as an object matching that interface in an array?
+
+If one of the properties is missing, you can just ignore it
+
+interface Weapon {
+  id: string;
+  name: string;
+  description: string;
+  tl: number;
+  range: number | string; // Range can be a number or a string like '3D'
+  damage: string;
+  weight: number; // In Kg
+  cost: string; // e.g., 'Cr500'
+  magazine: number | string; // Magazine can be a number or 'Unlimited'
+  magazineCost: string;
+  traits: string;
+}

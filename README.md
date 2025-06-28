@@ -11,3 +11,7 @@ The idea is simple:
 - You replace the data array in the macro with teh output from the LLM and voiala
 
 The macros by default will create the content in compendiums, you need to change the constants on the start of the macro to point to your own compendium
+
+# Tested LLMs
+- Gemini 2.5 flash
+- GPT-4o 

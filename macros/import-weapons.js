@@ -50,7 +50,7 @@ function pascalize(str) {
         function(g0,g1,g2){return g1.toUpperCase() + g2.toLowerCase();});
 }
 
-function FromSouceArmorToFoundryArmor(weaponData, skill) {
+function FromSouceWeaponToFoundryWeapon(weaponData, skill) {
   
   return {
       "name": pascalize(weaponData.name),
@@ -71,20 +71,21 @@ function FromSouceArmorToFoundryArmor(weaponData, skill) {
         "damageType": "NONE",
         "rateOfFire": GetWeaponAuto(weaponData.traits),
         "armorPiercing": GetWeaponAP(weaponData.traits),
+        "description": weaponData.description
     }
   }
 }
 
 
 async function CreateWeapon(weaponData, skill) {
-    const weapon = await FromSouceArmorToFoundryArmor(weaponData, skill);
+    const weapon = await FromSouceWeaponToFoundryWeapon(weaponData, skill);
     const result = await Item.create(weapon, { pack: ITEM_COMPENDIUM_PACK })
     return result;
 
 }
 
-// The output from the llm
 
+const data = [] // Replace emppty array with array withe the output from the LLM
 
 
 

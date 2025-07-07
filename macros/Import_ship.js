@@ -123,6 +123,12 @@ async function FromSourceShipToFoundryShip(source) {
                     "value": ss.shipStats.bandwith.value,
                     "max": ss.shipStats.bandwith.max,
                     "min": ss.shipStats.bandwith.min
+                },
+               "fuel": {
+               "value": ss.shipStats.fuel.value,
+               "max": ss.shipStats.fuel.max,
+               "min": ss.shipStats.fuel.min,
+               "isRefined": true
                 }
             }
         }

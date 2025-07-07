@@ -26,7 +26,7 @@ const itemData = {
   name: "Ship Name from Sheet",
   type: "ship",
   system: {
-    techlevel: [number],
+    techLevel: [number],
     maintenanceCost: [number in Cr],
     shipValue: [number in MCr],
     reqPower: {
@@ -41,7 +41,8 @@ const itemData = {
       armor: { value: [...], max: [...], min: 0 },
       mass: { value: [...], max: [...], min: 0 },
       drives: { jDrive: { rating: [...] }, mDrive: { rating: [...] } },
-      bandwith: { value: [computer rating], max: [...], min: 0 }
+      bandwith: { value: [computer rating], max: [...], min: 0 },
+      fuel: { value: [...], max: [...], min: [...] }
     }
   },
   items: [

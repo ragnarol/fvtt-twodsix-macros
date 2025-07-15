@@ -28,6 +28,7 @@ const itemData = {
   name: "Ship Name from Sheet",
   type: "ship",
   system: {
+    description: [[...]]
     techLevel: [number],
     maintenanceCost: [number in Cr],
     shipValue: [number in MCr],

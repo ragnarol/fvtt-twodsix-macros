@@ -78,6 +78,7 @@ async function FromSourceShipToFoundryShip(source) {
         type: "ship",
         system: {
             name: source.name,
+            notes: ss.description,
             techLevel: ss.techLevel,
             maintenanceCost: ss.maintenanceCost,
             shipValue: ss.shipValue,

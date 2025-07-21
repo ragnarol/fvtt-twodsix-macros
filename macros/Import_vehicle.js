@@ -72,7 +72,6 @@ async function GetOrCreateItem(source) {
 
 async function FromSourceVehicleToFoundryVehicle(source) {
     let ss = source.system;
-
     return {
         name: source.name,
         type: "vehicle",
@@ -106,6 +105,26 @@ async function FromSourceVehicleToFoundryVehicle(source) {
                     max: ss.damageStats.hull.max,
                     min: ss.damageStats.hull.min,
                     label: ss.damageStats.hull.label
+                },
+                detailedArmor: {
+                    front: { 
+                        value: ss.damageStats.detailedArmor.front.value, 
+                        max: ss.damageStats.detailedArmor.front.max,  
+                        min: ss.damageStats.detailedArmor.front.min, 
+                        label: ss.damageStats.detailedArmor.front.label 
+                    },
+                    rear: { 
+                        value: ss.damageStats.detailedArmor.rear.value, 
+                        max: ss.damageStats.detailedArmor.rear.max,  
+                        min: ss.damageStats.detailedArmor.rear.min, 
+                        label: ss.damageStats.detailedArmor.rear.label 
+                    },
+                 sides:{ 
+                        value: ss.damageStats.detailedArmor.sides.value, 
+                        max: ss.damageStats.detailedArmor.sides.max,  
+                        min: ss.damageStats.detailedArmor.sides.min, 
+                        label: ss.damageStats.detailedArmor.sides.label
+                    } 
                 }
             },    
             skillToOperate: ss.skillToOperate,

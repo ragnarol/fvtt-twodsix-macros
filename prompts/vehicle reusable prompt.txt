@@ -12,8 +12,8 @@ the skill name should be converted so that instead of the second part being in p
 
 The hull value and max should reflect the hull points in the image if they exist
 
-for any Armour listing with multiple fields (e.g. Front 2, Rear 2) combine them into a single entry separated by \n for the new line character (e.g. Front: 2\nRear: 2)
-traits should also be listed as a single entry separated by \n for the new line character (e.g. ATV, Tracked)
+armour will have front, rear and side listings and the value should be included in the detailedArmor section as the value and max number.
+traits should be comnbined as a single entry separated by \n for the new line character (e.g. ATV\nTracked)
 
 Include all equipment and weapons as components in items.
 
@@ -30,7 +30,7 @@ subtype: "program", and a level property if the program has /N (e.g. 2 in Jump C
 
 powerDraw: 0, tonnage: 0.
 
-Add subtype based on the section from the ship sheet (e.g. staterooms, systems, sensors, computer, program, commonAreas).
+Add subtype based on the section from the vehicle sheet (e.g. staterooms, systems, sensors, computer, program, commonAreas).
 
 Use the number in the computer’s name (e.g. 5 in Computer 5/bis) as the ship’s bandwith.value.
 ts
@@ -59,7 +59,12 @@ const vehicleData = {
             damageStats: {
               armor: { value: [...], max: [number], min: 0, label: "..." },
               armorLabel: "...",
-              hull: { value: [...], max: [...], min: 0, label: [...]} 
+              hull: { value: [...], max: [...], min: 0, label: [...]},
+              detailedArmor{
+                front: { value: [number], max: [number], min: 0, label: "..." },
+                rear: { value: [number], max: [number], min: 0, label: "..." },
+                sides: { value: [number], max: [number], min: 0, label: "..." }
+              } 
             }, 
             skillToOperate: [...],
             traits: [...]

@@ -2,6 +2,8 @@ Please extract the data from this Traveller spaceship sheet image and return it 
 
 Use the structure below.
 
+The hull value and max should reflect the hull points in the image if they exist
+
 Include all ship components in items.
 
 For any component with a multiplier (e.g. Staterooms x10), move the count into a quantity property and clean the name.
@@ -26,7 +28,8 @@ const itemData = {
   name: "Ship Name from Sheet",
   type: "ship",
   system: {
-    techlevel: [number],
+    description: [[...]]
+    techLevel: [number],
     maintenanceCost: [number in Cr],
     shipValue: [number in MCr],
     reqPower: {
@@ -41,7 +44,8 @@ const itemData = {
       armor: { value: [...], max: [...], min: 0 },
       mass: { value: [...], max: [...], min: 0 },
       drives: { jDrive: { rating: [...] }, mDrive: { rating: [...] } },
-      bandwith: { value: [computer rating], max: [...], min: 0 }
+      bandwith: { value: [computer rating], max: [...], min: 0 },
+      fuel: { value: [...], max: [...], min: [...] }
     }
   },
   items: [

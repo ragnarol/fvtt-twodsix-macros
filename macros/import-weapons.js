@@ -1,5 +1,6 @@
 const ITEM_COMPENDIUM_PACK = "world.mgt2-csc";
 
+
 function ParseAmount(cost) {
   cost = cost || "";
   let multiplier = 1
@@ -30,6 +31,20 @@ function GetWeaponAuto(traits) {
     return Number(auto[0].replace(/\D/g,''))
   }
   
+  return null;
+}
+
+function GetHandlingModifier(traits) {
+  const array = traits.split(",");
+  const veryBulky = array.filter(x => x.toUpperCase().indexOf("VERY BULKY") >= 0);
+  if (!!veryBulky) {
+    return "STR 11/@characteristics.strength.mod - 2 12/0"
+  }
+
+  const bulky = array.filter(x => x.toUpperCase().indexOf("BULKY") >= 0);
+  if (!!bulky) {
+    return "STR 8/@characteristics.strength.mod - 1 9/0"
+  }
   return null;
 }
 
@@ -71,7 +86,8 @@ function FromSouceWeaponToFoundryWeapon(weaponData, skill) {
         "damageType": "NONE",
         "rateOfFire": GetWeaponAuto(weaponData.traits),
         "armorPiercing": GetWeaponAP(weaponData.traits),
-        "description": weaponData.description
+        "description": weaponData.description,
+        "handlingModifiers": GetHandlingModifier(weaponData.traits)
     }
   }
 }

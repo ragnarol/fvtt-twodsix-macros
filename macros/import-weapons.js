@@ -37,12 +37,12 @@ function GetWeaponAuto(traits) {
 function GetHandlingModifier(traits) {
   const array = traits.split(",");
   const veryBulky = array.filter(x => x.toUpperCase().indexOf("VERY BULKY") >= 0);
-  if (!!veryBulky) {
+  if (veryBulky.length > 0) {
     return "STR 11/@characteristics.strength.mod - 2 12/0"
   }
 
   const bulky = array.filter(x => x.toUpperCase().indexOf("BULKY") >= 0);
-  if (!!bulky) {
+  if (bulky.length > 0) {
     return "STR 8/@characteristics.strength.mod - 1 9/0"
   }
   return null;

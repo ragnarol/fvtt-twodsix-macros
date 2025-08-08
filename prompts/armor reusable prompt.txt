@@ -1,4 +1,4 @@
-Given the following interface, can you parse the attached images from a list of armors in the Traveller RPG and provide each weapon as an object matching that interface in an array?
+Given the following interface, can you parse the attached images from a list of armors in the Traveller RPG and provide each armor as an object matching that interface in an array?
 
 
 If there are multiple entries for the same armor, please attach the TL to the name, for example:
@@ -19,4 +19,5 @@ interface Armour {
     kg: string;
     cost: string;
     requiredSkill: string;
+    description: string;
 }

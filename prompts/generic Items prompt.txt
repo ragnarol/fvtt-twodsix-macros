@@ -1,0 +1,15 @@
+Given the following interface, can you parse the attached images from a list of items in the Traveller RPG and provide each weapon as an object matching that interface in an array?
+
+
+If there are multiple entries for the same item, please attach the TL to the name, for example:
+
+"Cloth TL7", "Cloth TL10" etc
+
+
+interface GenericItem {
+    name: string;
+    tl: string;
+    kg: string;
+    cost: string;
+    description: string;
+}
